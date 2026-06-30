@@ -1,0 +1,894 @@
+/* Importiamo i font corretti: Syne (per il look esteso dei titoli) e Space Grotesk per i testi leggeri */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&family=Syne:wght@700;800&display=swap');
+
+/* Importiamo Bootstrap 5 */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+    --bg-main: #e2e1e6;
+    --text-primary: #3c3b4e;
+    --text-muted: #6e6d81;
+    --accent-purple: #5c5470;
+
+    --gradient-1: linear-gradient(135deg, #b5fffc 0%, #ffdee9 100%);
+    --gradient-2: linear-gradient(135deg, #ffe5ec 0%, #ffeb3b 100%);
+    --gradient-3: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+}
+
+
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+    background-size: 24px 24px;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+
+/* Impedisce lo scroll orizzontale su TUTTO il sito */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Quando il menu è aperto, blocchiamo lo scroll della pagina sottostante */
+.menu-is-open {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+/* Assicuriamoci che l'overlay non causi mai overflow */
+.menu-overlay {
+    overflow-y: auto;
+    /* Permette lo scroll solo se il menu è più alto dello schermo */
+    overflow-x: hidden;
+}
+
+
+/* Rimuove completamente le linee da tutti i link del sito */
+a {
+    text-decoration: none !important;
+}
+
+/* I TITOLI CON IL FONT GIGANTE, ESTESO E SCHIACCIATO DEL RIFERIMENTO */
+h1,
+h2,
+h3,
+h4,
+.menu-link {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    /* Questa combinazione ricrea l'effetto largo ed esteso dell'immagine */
+    letter-spacing: -0.03em;
+    word-spacing: 0.05em;
+    text-decoration: none !important;
+}
+
+/* Configurazione del logo a sinistra */
+.brand-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text-primary) !important;
+    text-transform: lowercase;
+}
+
+/*-----------------------------------------body-----------------------------------------------------------------------*/
+/* Bottone Menu Hamburger */
+.menu-trigger {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 2000;
+}
+
+/* Schermata Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-main);
+    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+    background-size: 24px 24px;
+    z-index: 1050;
+    display: none;
+
+    /* Allinea il contenuto partendo dall'alto per controllare perfettamente l'header */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.menu-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.menu-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-right: 1.5rem;
+    font-weight: 500;
+}
+
+/* I link giganti del menu overlay */
+.menu-link {
+    font-size: 4rem;
+    color: var(--text-primary) !important;
+    line-height: 1;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .menu-link {
+        font-size: 2.5rem;
+    }
+}
+
+.menu-link:hover {
+    color: var(--accent-purple) !important;
+    transform: translateX(10px);
+}
+
+/* Card minimali arrotondate per i progetti e competenze */
+.bg-portfolio-card {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px !important;
+}
+
+.gradient-blob-1 {
+    background: var(--gradient-1);
+}
+
+.gradient-blob-2 {
+    background: var(--gradient-2);
+}
+
+.gradient-blob-3 {
+    background: var(--gradient-3);
+}
+
+/* CONTENITORE DEL BOTTONE MENU ------------------------inizio-----------------------------------------*/
+
+
+/* CONTENITORE PRINCIPALE DEL BOTTONE */
+.menu-trigger {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000 !important;
+}
+
+/* Cerchio scuro di sfondo all'hover */
+.menu-trigger-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(60, 59, 78, 0.15);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.menu-trigger:hover .menu-trigger-bg,
+.menu-trigger.is-open .menu-trigger-bg {
+    transform: scale(1);
+}
+
+/* STRUTTURA SVG */
+.menu-svg {
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+    overflow: visible;
+}
+
+/* MODIFICATO: I 9 cerchietti ora sono vuoti dentro con il bordo scuro */
+.menu-svg circle {
+    fill: var(--bg-main);
+    /* Stesso colore dello sfondo = sembrano vuoti */
+    stroke: var(--text-primary);
+    stroke-width: 4;
+    /* Spessore del bordo identico al resto */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Stile per il "+" e la "X" centrale (Vuoti dentro con bordo) */
+.cross-rect {
+    fill: var(--bg-main);
+    stroke: var(--text-primary);
+    stroke-width: 4;
+    opacity: 0;
+    transform-origin: center;
+    transition: all 0.3s ease;
+}
+
+/* STATO 2: HOVER (Passi sopra con il mouse) -> Diventa un "+" vuoto */
+.menu-trigger:hover .cross-rect {
+    opacity: 1;
+}
+
+/* Forza tutti i 9 cerchi a confluire al centro e sparire */
+.menu-trigger:hover .menu-svg circle,
+.menu-trigger.is-open .menu-svg circle {
+    cx: 50px !important;
+    cy: 50px !important;
+    opacity: 0;
+}
+
+/* STATO 3: CLICK (Menu Aperto) -> Ruota a 45° diventando una X vuota */
+.menu-trigger.is-open .cross-rect {
+    opacity: 1;
+}
+
+.menu-trigger.is-open .menu-svg {
+    transform: rotate(45deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Adattamento colore interno quando lo sfondo dell'hover (grigio/viola) si attiva */
+.menu-trigger:hover .cross-rect,
+.menu-trigger.is-open .cross-rect,
+.menu-trigger:hover .menu-svg circle {
+    fill: #d3d2d7;
+}
+
+/* CONTENITORE DEL BOTTONE MENU ------------------------fine-----------------------------------------*/
+
+/* STILE TITOLO HERO -----------------------------------inizio----------------------------------------*/
+.hero-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--text-primary);
+}
+
+.hero-title .text-filled {
+    color: var(--text-primary);
+}
+
+/* BOTTONI INTERATTIVI CON SOTTOLINEATURA E CERCHIO */
+.interactive-link {
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+/* La linea che si crea sotto quando ci passi sopra con il mouse */
+.interactive-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--text-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Il cerchio dell'hover azzerato per il JavaScript */
+.interactive-link .hover-circle {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(60, 59, 78, 0.25);
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    /* Parte invisibile */
+    transition: transform 0.25s ease-out;
+    /* Rende la comparsa/scomparsa fluida */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Rimuoviamo il vecchio transform fisso dall'hover CSS */
+.interactive-link:hover .hover-circle {
+    transform: scale(1);
+    /* Ci pensa il JS a posizionarlo, il CSS lo attiva e basta */
+}
+
+.interactive-link:hover .hover-circle {
+    transform: translate(-30%, -40%) scale(1);
+    /* Spostato leggermente asimmetrico come Charles */
+}
+
+.interactive-link .arrow {
+    transition: transform 0.3s ease;
+}
+
+.interactive-link:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* STILE TITOLO HERO -----------------------------------fine----------------------------------------*/
+
+/* STILE TITOLO SEZIONE ABOUT -----------------------------inizio----------------------------------*/
+.section-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+}
+
+/* FOTO PROFILO ARROTONDATA */
+.profile-photo-container {
+    mask-image: radial-gradient(#fff, #000);
+    /* Assicura il ritaglio del pill su tutti i browser */
+}
+
+.profile-photo-container img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-photo-container:hover img {
+    transform: scale(1.05);
+    /* Effetto zoom morbido all'hover */
+}
+
+/* LINK AL CV: Stessa logica interattiva dei bottoni home */
+.cv-link .hover-circle {
+    background-color: rgba(60, 59, 78, 0.15) !important;
+    /* Cerchio più chiaro per non coprire il testo */
+}
+
+/* Differenziazione leggera tra i due bottoni */
+.cv-link {
+    color: var(--text-primary);
+}
+
+.cert-link {
+    color: #007bff;
+}
+
+/* Un tocco di blu per richiamare il logo */
+
+/* REGOLA GENERALE PER I TITOLI OUTLINE: Rimuoviamo il stroke per il titolo section-title */
+.about-section .section-title {
+    -webkit-text-stroke: 0px transparent !important;
+}
+
+/* STILE TITOLO SEZIONE ABOUT -----------------------------fine----------------------------------*/
+
+/* --- Stile Sezione About  -------------------------------inizio----------------------------- */
+.about-section-custom {
+    min-height: 80vh;
+}
+
+/* Contenitore della foto */
+/* In app.css */
+.about-profile-container {
+    max-width: 400px;
+    /* Limita la dimensione massima */
+    margin: 0 auto;
+    /* Centra l'immagine */
+    border-radius: 20px;
+    /* Un tocco più moderno */
+}
+
+/* L'immagine con i filtri vintage e la sfumatura in basso */
+.about-profile-img {
+    z-index: 2;
+    width: 100%;
+    min-height: 300px;
+    height: clamp(300px, 65vh, 500px);
+    filter: sepia(0.25) contrast(1.05) brightness(0.95);
+    /* Effetto vintage/pellicola */
+
+
+}
+
+/* Il velo di colore vintage sopra la foto */
+.about-photo-vintage-overlay {
+    background: linear-gradient(135deg, rgba(44, 38, 68, 0.2) 0%, rgba(237, 138, 112, 0.15) 100%);
+    z-index: 3;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    /* Fonde i colori caldi/freddi con la foto sottostante */
+}
+
+/* Elementi di testo e tipografia */
+.about-title-text {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.about-header-line {
+    height: 1.5px;
+    background-color: var(--text-primary);
+    opacity: 0.2;
+}
+
+.about-bio-p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.1px;
+}
+
+.about-skill-pill {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+}
+
+/* Animazione di base */
+.reveal-bottom {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Classe che attiva l'animazione */
+.reveal-bottom.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay progressivo */
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.3s;
+}
+
+.delay-3 {
+    transition-delay: 0.5s;
+}
+
+/* --- Stile Sezione About  -------------------------------fine----------------------------- */
+
+
+
+/* --- Stile Pagina Menu (Unificato e Ottimizzato) ---------------inizio------------------------- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ebebe0;
+    z-index: 1500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animazione di entrata */
+.menu-overlay[style*="display: flex"] .menu-page-list {
+    animation: slideDownMenu 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes slideDownMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-page-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    gap: 0.8rem;
+}
+
+/* Container della riga: allineamento perfetto alla base */
+.menu-page-item {
+    display: flex;
+    align-items: baseline;
+    /* Forza il numero e il testo a stare sulla stessa riga di base */
+    gap: 25px;
+    /* Spazio costante tra numero e testo */
+    width: 100%;
+    margin-bottom: 0.5rem;
+    /* Spazio tra una voce e l'altra */
+}
+
+/* Il numero: deve essere pulito da margini */
+.menu-page-number {
+    font-size: 1rem;
+    /* Dimensione proporzionata */
+    font-weight: 500;
+    color: var(--text-primary, #212529);
+    font-family: 'Space Grotesk', sans-serif;
+    opacity: 0.4;
+    margin: 0;
+    /* RESET: Rimosso margin-top: 10px */
+    line-height: 1;
+    /* Mantiene il numero allineato al testo */
+}
+
+.menu-page-link {
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #212529 !important;
+    font-family: 'Space Grotesk', sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    letter-spacing: -1.5px;
+    min-width: 450px;
+    transition: letter-spacing 0.35s ease, color 0.3s ease;
+    display: inline-flex;
+    align-items: baseline;
+    /* Anche qui allineiamo alla base */
+    line-height: 1;
+}
+
+.menu-page-item:hover .menu-page-link {
+    color: #444444 !important;
+    letter-spacing: 6px;
+}
+
+/* Contenitore Social */
+.menu-social-container {
+    margin-top: 2.5rem;
+    padding-top: 1.2rem;
+    max-width: 650px;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+.menu-social-link.interactive-link {
+    position: relative;
+    color: #212529 !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 16px;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.menu-social-link.interactive-link .arrow {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.menu-social-link.interactive-link:hover {
+    color: #444444 !important;
+}
+
+.menu-social-link.interactive-link:hover .arrow {
+    transform: translate(3px, -3px);
+}
+
+.menu-social-link.interactive-link .hover-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(68, 68, 68, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    transition: transform 0.25s ease;
+    z-index: -1;
+}
+
+/* --- Responsive per Mobile --- */
+@media (max-width: 768px) {
+    .menu-overlay {
+        padding: 20px;
+    }
+
+    .menu-page-list {
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu-page-link {
+        min-width: unset;
+        font-size: 2.2rem;
+        justify-content: center;
+    }
+
+    .menu-social-container {
+        justify-content: center;
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+/* --- Stile Pagina Menu (Unificato e Ottimizzato) ---------------fine------------------------- */
+
+
+/*Responsive_mobile----------------------------------------------inizio---------------------------*/
+/* Di default su desktop sono in linea */
+.break-mobile {
+    display: inline;
+}
+
+/* Solo su schermi piccoli (mobile) forziamo l'a capo */
+@media (max-width: 768px) {
+    .break-mobile {
+        display: block;
+        margin: 0.5rem 0;
+        /* Aggiunge un po' di respiro tra le righe */
+    }
+}
+
+.menu-content-wrapper {
+    /* Rimuovi justify-content-center */
+    justify-content: flex-end;
+
+    /* Aggiungi un padding o un margin superiore per staccarlo dal top */
+    padding-top: -20vh;
+    /* Regola questo valore per abbassarlo quanto vuoi */
+
+    /* Assicurati che occupi tutta l'altezza */
+    min-height: 97vh;
+}
+
+@media (max-width: 991px) {
+    .break-mobile {
+        display: block;
+    }
+}
+
+
+/*Responsive_mobile----------------------------------------------fine---------------------------*/
+
+/*Carousel----------------------------------------------inizio----------------------------------*/
+
+.card {
+    border-radius: 15px !important;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.carousel-inner img {
+    /* Imposta le dimensioni che preferisci */
+    height: 400px;
+    width: 100%;
+    /* Assicura che riempia sempre la larghezza del contenitore */
+
+
+    object-fit: contain;
+
+}
+
+@media (max-width: 768px) {
+    .carousel-inner img {
+        height: 200px;
+        /* Ridotto leggermente per adattarsi meglio al telefono */
+    }
+}
+
+/*Carousel----------------------------------------------fine---------------------------------------*/
+
+/* 1. Animazione-----------------------------------------inizio------------------------------------ */
+
+
+/*----------------------------------------logo------------------------------------*/
+
+
+
+.logo-animated {
+    /* Manteniamo la transizione fluida */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-animated:hover {
+    /* 1.05 significa che si ingrandisce del 5%, effetto "avanti" senza girare */
+    transform: scale(1.05);
+}
+
+#xhLogo path {
+    fill: none !important;
+}
+
+/*----------------------------------------logo------------------------------------*/
+
+
+/* Animazione di entrata per Welcome (Hero) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+/* Animazione di entrata per voci Menu e elementi Contatti */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-page-item,
+.contact-item {
+    opacity: 0;
+    animation: slideDown 0.6s ease-out forwards;
+}
+
+/* Ritardi progressivi (staggered) */
+.menu-page-list .menu-page-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.menu-page-list .menu-page-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.menu-page-list .menu-page-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.menu-page-list .menu-page-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.contact-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.contact-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.menu-page-item,
+.contact-item {
+    will-change: transform, opacity;
+    /* Dice al browser di preparare la GPU per l'animazione */
+    opacity: 0;
+    animation: slideDown 0.6s ease-out forwards;
+}
+
+/* Animazione del gradiente */
+@keyframes moveGradient {
+    0% {
+        stop-offset: 0%;
+    }
+
+    50% {
+        stop-offset: 100%;
+    }
+
+    100% {
+        stop-offset: 0%;
+    }
+}
+
+/* Applichiamo il movimento al gradiente */
+.logo-animated #blueFlowGradient stop:nth-child(2) {
+    animation: moveGradient 4s ease-in-out infinite;
+}
+
+/* Manteniamo il logo che ruota al click */
+.logo-animated {
+    transition: transform 0.5s ease;
+}
+
+.logo-animated:hover {
+    transform: scale(1.05);
+}
+
+/* 1. Animazione-----------------------------------------fine------------------------------------ */
+
+/* 1. bottone translate-----------------------------------------inizio------------------------------------ */
+
+/* Container dello switch - Dimensione Media */
+.switch-container {
+    position: relative;
+    display: inline-block;
+    width: 54px;  /* Via di mezzo */
+    height: 30px; /* Via di mezzo */
+}
+
+.switch-container input { opacity: 0; width: 0; height: 0; }
+
+/* Il rettangolo di sfondo */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+/* La pallina bianca */
+.slider:before {
+    position: absolute;
+    content: "IT";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px; width: 22px; /* Dimensione pallina media */
+    left: 4px; bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    font-size: 9px; 
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Quando è attivo (EN) */
+input:checked + .slider { background-color: #ccc; }
+
+input:checked + .slider:before {
+    transform: translateX(24px); /* (54px larghezza - 22px pallina - 8px margini) = 24px */
+    content: "EN";
+    color: #28a745;
+}
+/* 1. bottone translate-----------------------------------------fine------------------------------------ */
