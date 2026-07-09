@@ -1,13 +1,5 @@
 services:
   - type: web
     name: portfolio-xhoni
-    runtime: php
-    buildCommand: "composer install --no-dev && npm install && npm run build"
-    startCommand: "php -S 0.0.0.0:$PORT -t public"
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_DEBUG
-        value: "false"
-      - key: APP_KEY
-        generate: true
+    runtime: docker # Questo dice a Render di guardare il Dockerfile
+    # Rimuovi buildCommand e startCommand, sono già nel Dockerfile
