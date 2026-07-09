@@ -1,5 +1,4 @@
 services:
   - type: web
     name: portfolio-xhoni
-    runtime: docker # Questo dice a Render di guardare il Dockerfile
-    # Rimuovi buildCommand e startCommand, sono già nel Dockerfile
+    runtime: docker
