@@ -1,9 +1,11 @@
 FROM php:8.2-apache
 
 # Installazione estensioni di sistema
+# Ho aggiunto libicu-dev qui sotto
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libzip-dev \
+    libicu-dev \
     zip \
     unzip \
     git \
