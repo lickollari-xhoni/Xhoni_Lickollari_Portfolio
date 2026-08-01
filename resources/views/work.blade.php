@@ -7,8 +7,8 @@
         </div>
 
         {{-- PROGETTO 1: Komerz --}}
-        <div class="row align-items-center mb-5 pb-5 border-bottom reveal-bottom delay-2">
-            <div class="col-lg-4 offset-lg-1 mt-4 mt-lg-0 order-1 order-lg-1">
+        <div class="row align-items-center justify-content-center mb-5 pb-5 border-bottom reveal-bottom delay-2">
+            <div class="col-lg-4 mt-4 mt-lg-0 order-1 order-lg-1">
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="text-uppercase small fw-bold text-primary">E-Commerce</span>
                     <a href="https://github.com/lickollari-xhoni/Final_Project_Xhoni_Lickollari" target="_blank"
@@ -35,8 +35,8 @@
         </div>
 
         {{-- PROGETTO 2: Aulab Chronicle --}}
-        <div class="row align-items-center mb-5 pb-5 border-bottom reveal-bottom delay-2">
-            <div class="col-lg-4 offset-lg-1 mt-4 mt-lg-0 order-1 order-lg-1">
+        <div class="row align-items-center justify-content-center mb-5 pb-5 border-bottom reveal-bottom delay-2">
+            <div class="col-lg-4  mt-4 mt-lg-0 order-1 order-lg-1">
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="text-uppercase small fw-bold text-primary">NEWS PLATFORM</span>
                     <a href="https://github.com/lickollari-xhoni/Final_Project_Xhoni_Lickollari" target="_blank"
@@ -62,8 +62,8 @@
         </div>
 
         {{-- PROGETTO 3: EdilPro --}}
-        <div class="row align-items-center mb-5 pb-5 border-bottom reveal-bottom delay-2">
-            <div class="col-lg-4 offset-lg-1 mt-4 mt-lg-0 order-1 order-lg-1">
+        <div class="row align-items-center justify-content-center mb-5 pb-5 border-bottom reveal-bottom delay-2">
+            <div class="col-lg-4 mt-4 mt-lg-0 order-1 order-lg-1">
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="text-uppercase small fw-bold text-primary">CORPORATE</span>
                     <a href="https://github.com/lickollari-xhoni/Edil_Pro" target="_blank"
