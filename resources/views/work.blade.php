@@ -22,11 +22,11 @@
             <div class="col-lg-7 order-2 order-lg-2">
                 <div id="carouselKomerz" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active"><img src="{{ asset('img/komerz-1.PNG') }}" class="d-block w-100" alt="Komerz 1"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/komerz-2.PNG') }}" class="d-block w-100" alt="Komerz 2"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/komerz-3.PNG') }}" class="d-block w-100" alt="Komerz 3"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/komerz-4.PNG') }}" class="d-block w-100" alt="Komerz 4"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/komerz-5.PNG') }}" class="d-block w-100" alt="Komerz 5"></div>
+                        <div class="carousel-item active"><img src="{{ asset('img/komerz-1.png') }}" class="d-block w-100" alt="Komerz 1"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/komerz-2.png') }}" class="d-block w-100" alt="Komerz 2"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/komerz-3.png') }}" class="d-block w-100" alt="Komerz 3"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/komerz-4.png') }}" class="d-block w-100" alt="Komerz 4"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/komerz-5.png') }}" class="d-block w-100" alt="Komerz 5"></div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselKomerz" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselKomerz" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
@@ -50,10 +50,10 @@
             <div class="col-lg-7 order-2 order-lg-2">
                 <div id="carouselChronicle" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active"><img src="{{ asset('img/aulab-chronicle-1.PNG') }}" class="d-block w-100" alt="Chronicle 1"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/aulab-chronicle-2.PNG') }}" class="d-block w-100" alt="Chronicle 2"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/aulab-chronicle-3.PNG') }}" class="d-block w-100" alt="Chronicle 3"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/aulab-chronicle-4.PNG') }}" class="d-block w-100" alt="Chronicle 4"></div>
+                        <div class="carousel-item active"><img src="{{ asset('img/aulab-chronicle-1.png') }}" class="d-block w-100" alt="Chronicle 1"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/aulab-chronicle-2.png') }}" class="d-block w-100" alt="Chronicle 2"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/aulab-chronicle-3.png') }}" class="d-block w-100" alt="Chronicle 3"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/aulab-chronicle-4.png') }}" class="d-block w-100" alt="Chronicle 4"></div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselChronicle" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselChronicle" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
@@ -77,11 +77,11 @@
             <div class="col-lg-7 order-2 order-lg-2">
                 <div id="carouselEdilPro" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active"><img src="{{ asset('img/edilpro-1.PNG') }}" class="d-block w-100" alt="EdilPro 1"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/edilpro-2.PNG') }}" class="d-block w-100" alt="EdilPro 2"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/edilpro-3.PNG') }}" class="d-block w-100" alt="EdilPro 3"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/edilpro-4.PNG') }}" class="d-block w-100" alt="EdilPro 4"></div>
-                        <div class="carousel-item"><img src="{{ asset('img/edilpro-5.PNG') }}" class="d-block w-100" alt="EdilPro 5"></div>
+                        <div class="carousel-item active"><img src="{{ asset('img/edilpro-1.png') }}" class="d-block w-100" alt="EdilPro 1"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/edilpro-2.png') }}" class="d-block w-100" alt="EdilPro 2"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/edilpro-3.png') }}" class="d-block w-100" alt="EdilPro 3"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/edilpro-4.png') }}" class="d-block w-100" alt="EdilPro 4"></div>
+                        <div class="carousel-item"><img src="{{ asset('img/edilpro-5.png') }}" class="d-block w-100" alt="EdilPro 5"></div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselEdilPro" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselEdilPro" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>

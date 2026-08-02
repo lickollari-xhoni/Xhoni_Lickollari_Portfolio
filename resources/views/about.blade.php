@@ -5,7 +5,7 @@
 
         <div class="col-lg-5 text-center order-1 order-lg-2 reveal-bottom delay-2">
             <div class="position-relative overflow-hidden about-profile-container">
-                <img src="{{ asset('img/foto-profilo.JPG') }}" alt="Xhoni Lickollari"
+                <img src="{{ asset('img/foto-profilo.jpg') }}" alt="Xhoni Lickollari"
                     class="img-fluid object-fit-cover position-relative about-profile-img">
                 <div class="position-absolute top-0 start-0 w-100 h-100 about-photo-vintage-overlay"></div>
             </div>
