@@ -26,17 +26,25 @@
 
             <div class="skills-block">
                 <div class="d-flex flex-wrap gap-2">
-                    <span class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">PHP</span>
-                    <span class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">Laravel</span>
-                    <span class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">Java</span>
-                    <span class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">Spring Boot</span>
-                    <span class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">MySQL</span>
-                    <span class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">REST API</span>
+                    <span
+                        class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">PHP</span>
+                    <span
+                        class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">Laravel</span>
+                    <span
+                        class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">Java</span>
+                    <span
+                        class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">Spring
+                        Boot</span>
+                    <span
+                        class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">MySQL</span>
+                    <span
+                        class="skill-tag border border-secondary border-opacity-25 rounded-pill text-muted px-3 py-1.5 about-skill-pill">REST
+                        API</span>
                 </div>
             </div>
 
             <div class="mt-4 d-flex flex-wrap justify-content-center align-items-center gap-3 gap-sm-4">
-                <a href="{{ asset('cv.pdf') }}" target="_blank" rel="noopener noreferrer"
+                <a href="{{ asset('CV_Xhoni_Lickollari.pdf') }}" target="_blank" rel="noopener noreferrer"
                     class="interactive-link d-inline-flex align-items-center gap-2 cv-link text-nowrap">
                     <span class="arrow">&darr;</span> {{ __('ui.about_cv') }}
                     <div class="hover-circle"></div>
