@@ -44,7 +44,7 @@
             </div>
 
             <div class="mt-4 d-flex flex-wrap justify-content-center align-items-center gap-3 gap-sm-4">
-                <a href="{{ asset('CV_Xhoni_Lickollari.pdf') }}" target="_blank" rel="noopener noreferrer"
+                <a href="{{ asset('CV_Xhoni_Lickollari.pdf') }}?v=2" target="_blank" rel="noopener noreferrer"
                     class="interactive-link d-inline-flex align-items-center gap-2 cv-link text-nowrap">
                     <span class="arrow">&darr;</span> {{ __('ui.about_cv') }}
                     <div class="hover-circle"></div>
